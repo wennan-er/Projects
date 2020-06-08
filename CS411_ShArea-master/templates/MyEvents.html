@@ -1,0 +1,133 @@
+<html>
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+            <style>
+                body {
+                    font-family: "Lato", sans-serif;
+                }
+
+                .sidebar {
+                    height: 100%;
+                    width: 85px;
+                    position: fixed;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    background-color: #111;
+                    overflow-x: hidden;
+                    transition: 0.5s;
+                    padding-top: 60px;
+                    white-space: nowrap;
+                }
+
+                .sidebar a {
+                    padding: 8px 8px 8px 32px;
+                    text-decoration: none;
+                    font-size: 25px;
+                    color: #818181;
+                    display: block;
+                    transition: 0.3s;
+                }
+
+                .sidebar a:hover {
+                    color: #f1f1f1;
+                }
+
+                .sidebar .closebtn {
+                    position: absolute;
+                    top: 0;
+                    right: 25px;
+                    font-size: 36px;
+                    margin-left: 50px;
+                }
+
+                .material-icons,
+                .icon-text {
+                    vertical-align: middle;
+                }
+
+                .material-icons {
+                    padding-bottom: 3px;
+                }
+
+                #main {
+                    transition: margin-left .5s;
+                    padding: 16px;
+                    margin-left: 100px;
+                }
+                /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+                @media screen and (max-height: 450px) {
+                    .sidebar {
+                        padding-top: 15px;
+                    }
+                    .sidebar a {
+                        font-size: 18px;
+                    }
+                }
+            </style>
+        </head>
+
+        <body>
+
+                <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+                        <a href="http://127.0.0.1:5000"><i class="material-icons">home</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Logout<span></a>
+                        <a href="MyEvents.html"><i class="material-icons">create</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Event</a></span>
+                        <a href="search.html"><i class="material-icons">search</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Find A Friend</a></span>
+                        </a><br>
+                        <a href="events.html"><i class="material-icons">emoji_events</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Find Events</span></a><br>
+                        <a href="settings.html"><i class="material-icons">perm_identity</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Account Info<span></a>
+                </div>
+            <div id="main">
+                    <h1 style = "text-align:center;"> Manage Your Events</h1>
+                    <div id = "frmCreate" style = "width:300px;float:left">
+                    <form name="frmCreate">
+                            <h2> Create An Event</h2><br>
+                            <label for="id">Enter You Username</label><br>
+                            <input type="text" id="id" placeholder="Username"><br>
+                             <br>
+                            <label for="start_time">Enter Start Time Of Event</label><br>
+                            <input type="text" id="start_time" placeholder="start time"><br>
+                             <br>
+                            <label for="duration">Enter Duration of Event</label><br>
+                            <input type="text" id="duration" placeholder="duration"><br>
+                             <br>
+                            <label for="tags">Enter Type Of Event</label><br>
+                            <input type="text" id="tags" placeholder="Tags (comma separated)"><br>
+                             <br>
+                            <input type="button" id="createEvent" value="Create Event">
+                    </form>
+            </div>
+                    <div id = "delete" style = "width:500px;float:center;text-align:left">
+                    <h2 style = "text-align: right;"> Delete An Event</h2>
+                    <form style = "text-align: right;">
+                            <label for="usrname">Enter Your Username</label></br>
+                            <input type="text" id="usrname"><br>
+                            <input type="button" id="deleteEvent" value="Delete Event">
+                    </form>
+            </div>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                    <script src="./static/MyEvents.js"></script>
+            </div>
+
+            <script>
+                var mini = true;
+
+                function toggleSidebar() {
+                    if (mini) {
+                        console.log("opening sidebar");
+                        document.getElementById("mySidebar").style.width = "250px";
+                        document.getElementById("main").style.marginLeft = "250px";
+                        this.mini = false;
+                    } else {
+                        console.log("closing sidebar");
+                        document.getElementById("mySidebar").style.width = "85px";
+                        document.getElementById("main").style.marginLeft = "85px";
+                        this.mini = true;
+                    }
+                }
+            </script>
+        </body>
+</html>

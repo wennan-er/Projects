@@ -1,0 +1,41 @@
+<html>
+
+<head>
+        <style>
+                .serif {
+                        font-family: "Times New Roman", Times, serif;
+                }
+                .button {
+                        background-color: #4CAF50; /* Green */
+                        border: none;
+                        color: white;
+                        padding: 15px 32px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;
+                }
+        </style>
+</head>
+
+<body>
+<form style="text-align:center;" name="frmCreate">
+<br><br>
+<h1 style="text-align:center;">Create username and password</h1>
+<br>
+<input style="text-align:center;" type="text" id="email">
+<input style="text-align:center;" type="text" id="password">
+<input  style="text-align:center;" type="button" id="createButton" value="Create Account">
+</form>
+
+<form style="text-align:center;" name="frmCreate">
+<br><br>
+<h style="text-align:center;">Your username is: </h>
+<input type="text" id="showName">
+</form>
+<button class = "button" onclick="window.location.href = 'login.html';">Go To Login Page</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./static/create.js"></script>
+</body>
+</html>

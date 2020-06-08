@@ -1,0 +1,173 @@
+<html>
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+            <style>
+                body {
+                    font-family: "Lato", sans-serif;
+                }
+
+                .sidebar {
+                    height: 100%;
+                    width: 85px;
+                    position: fixed;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    background-color: #111;
+                    overflow-x: hidden;
+                    transition: 0.5s;
+                    padding-top: 60px;
+                    white-space: nowrap;
+                }
+
+                .sidebar a {
+                    padding: 8px 8px 8px 32px;
+                    text-decoration: none;
+                    font-size: 25px;
+                    color: #818181;
+                    display: block;
+                    transition: 0.3s;
+                }
+
+                .sidebar a:hover {
+                    color: #f1f1f1;
+                }
+
+                .sidebar .closebtn {
+                    position: absolute;
+                    top: 0;
+                    right: 25px;
+                    font-size: 36px;
+                    margin-left: 50px;
+                }
+
+                .material-icons,
+                .icon-text {
+                    vertical-align: middle;
+                }
+
+                .material-icons {
+                    padding-bottom: 3px;
+                }
+
+                #main {
+                    transition: margin-left .5s;
+                    padding: 16px;
+                    margin-left: 100px;
+                }
+                /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+                @media screen and (max-height: 450px) {
+                    .sidebar {
+                        padding-top: 15px;
+                    }
+                    .sidebar a {
+                        font-size: 18px;
+                    }
+                }
+                body {
+                        font-family: Helvetica;
+                }
+
+                ul {
+                        list-style-type: none;
+                        line-height: 24px;
+                        margin: 0;
+                        padding: 0;
+                }
+
+                sup {
+                        vertical-align: baseline;
+                        position: relative;
+                        top: -0.4em;
+                        color: red;
+                }
+
+                div.templates {
+                        display: none;
+                }
+
+                div.title {
+                        float: left;
+                        overflow: auto;
+                }
+
+                div.tag {
+                        float: right;
+                        overflow: auto;
+                        color: #37b;
+                }
+
+                div.duration {
+                        overflow: auto;
+                        font-size: .9em;
+                        color: #666;
+                        line-height: normal;
+                }
+
+                .row1,
+                .row2 {
+                        clear: both;
+                }
+                li {
+                        padding: 5px 0;
+                }
+        </style>
+</head>
+
+        <body onload = "getEvents()">
+
+                <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+                        <a href="http://127.0.0.1:5000"><i class="material-icons">home</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Logout<span></a>
+                        <a href="MyEvents.html"><i class="material-icons">create</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Event</a></span>
+                        <a href="search.html"><i class="material-icons">search</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Find A Friend</a></span>
+                        </a><br>
+                        <a href="events.html"><i class="material-icons">emoji_events</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Find Events</span></a><br>
+                        <a href="settings.html"><i class="material-icons">perm_identity</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Account Info<span></a>
+                </div>
+            <div id="main">
+                            <h1 style = "text-align:center;">Find Events</h1>
+                            <form style="text-align:center;">
+                                    <label for="tag_info">Enter Tag To Search For</label><br>
+                                    <br>
+                                    <input type="text" id="tag_info" placeholder="Enter Tags (comma separated)"><br>
+                                    <br>
+                                    <input type="button" id="searchBtn" value="Search"><br>
+
+                            </form>
+                            <h2> Open Events:</h2>
+                            <ul id="dataList"></ul>
+                            <div class="templates">
+                                    <div id="listItem">
+                                            <div class="row1">
+                                                    <div class="title"></div>
+                                                    <div class="tag"></div>
+                                            </div>
+                                            <div class="row2"><div class="duration"></div></div>
+                                    </div>
+                            </div>
+
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                        <script src="./static/events.js"></script>
+        </div>
+                            <script>
+                                var mini = true;
+
+                                function toggleSidebar() {
+                                    if (mini) {
+                                        console.log("opening sidebar");
+                                        document.getElementById("mySidebar").style.width = "250px";
+                                        document.getElementById("main").style.marginLeft = "250px";
+                                        this.mini = false;
+                                    } else {
+                                        console.log("closing sidebar");
+                                        document.getElementById("mySidebar").style.width = "85px";
+                                        document.getElementById("main").style.marginLeft = "85px";
+                                        this.mini = true;
+                                    }
+                                }
+                            </script>
+                    </body>
+</html>
